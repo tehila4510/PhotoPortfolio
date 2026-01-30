@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newBorn</title>
+    <link rel="stylesheet" href="styleSheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+ <!-- Header -->
+ <!-- <div class="header"> <img class="shakeImg" src="../photos/home/logo.png" alt="logo" style="width:20%">
+ </div> -->
+
+  <!--סרגל-->
+  
+  <div class="topnav" id="myTopnav">
+    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a id="thefirst"></a>
+    <a href="../homePage.html" ><i class="fa fa-home"></i >דף הבית</a>
+      <a href="children.html" class="active" ><i id="i1" class="material-icons"></i> ילדים</a>
+      <a href="newBorn.html" ><i id="i1" class="material-icons"></i> ניו בורן</a>
+      <a href="smash_cake.html"><i id="i1" class="material-icons"></i> סמאש- קייק</a>
+      <a href="contact.html"><i id="i1" style="font-size:24px" class="fa"></i> צור קשר</a>
+</div>
+  <script>
+    
+    // פונקציה להפעלת תפריט ההמבורגר
+    function toggleMenu() {
+      const nav = document.getElementById("myTopnav");
+      const body = document.body;
+  
+      if (nav.className === "topnav") {
+        nav.className += " responsive";
+        body.classList.add("responsive-content"); // לא לדחוף את התוכן
+      } else {
+        nav.className = "topnav";
+        body.classList.remove("responsive-content"); // החזרת התוכן למקום
+      }
+    }
+  </script>
+  
+   
+  <br><br><br><br>
+
+  <!-- Photo Grid -->
+  <div class="row">
+    <div class="column">
+      <img class="modal-img" src="../photos/child/1.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/32.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/2.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/4.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/5.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/7.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/41.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/29.jpg" style="width:100%">
+    </div>
+    <div class="column">
+      <img class="modal-img" src="../photos/child/8.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/9.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/10.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/11.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/12.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/13.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/14.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/43.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/6.jpg" style="width:100%">
+    </div>
+    <div class="column">
+      <img class="modal-img" src="../photos/child/23.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/17.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/18.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/19.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/20.jpg" style="width:100%">
+     <img class="modal-img" src="../photos/child/30.jpg" style="width:100%">
+     <img class="modal-img" src="../photos/child/22.jpg" style="width:100%;">
+    </div>
+    <div class="column">
+      <img class="modal-img" src="../photos/child/22.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/45.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/16.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/25.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/27.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/28.jpg" style="width:100%">
+      <img class="modal-img" src="../photos/child/47.jfif" style="width:100%">
+      <img class="modal-img" src="../photos/child/תמונה1.jpg" style="width:100%">
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the modal elements
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  
+  // Get all images with a specific class (e.g., "modal-img")
+  var images = document.getElementsByClassName("modal-img");
+  
+  // Loop through the images and add click event listeners
+  for (var i = 0; i < images.length; i++) {
+    images[i].onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    };
+  }
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  };
+  </script>
+  <br><br>
+  <div id="good"  style="cursor:pointer" onclick="openNav()">
+    <img src="../photos/45.jpg" alt="camera" style="width: 80px;"><br>
+    <span >כדאי לכם ללחוץ על זה!</span><br><br>
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <p id="jump">הי! רוצים לשמוע על הטבות משתלמות במיוחד?
+      לקבל חומרים מיוחדים ישירות אליכם?
+      <br>בכיף!</p>
+        <form id="formJump">
+          <label class="labelForm" for="fname">אז איך אמרת שקוראים לך?</label><br><br>
+          <input class="inputForm" id="name" placeholder="תהילה" type="text" id="name" name="name"><br><br>
+          <label class="labelForm" for="email">מה המייל שלך</label><br><br>
+          <input class="inputForm"type="email" id="email" placeholder="tehila4510@gmail.com" name="email"><br><br>
+          <button id="submitForm" type="submit" onclick="alertSAve()" >
+            <i class="material-icons">send</i>
+        </button>        </form> 
+  </div> 
+  
+  <script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "300px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  function alertSAve() {
+    var n = document.getElementById("name").value;
+    alert("תודה" + " "+n +" "+ "הבקשה נקלטה בהצלחה");
+}
+  </script>
+
+  <br>
+<!--table-->
+<table>
+  <tr>   
+    <th></th>
+    <th>ילדים</th>
+    <th>ניו בורן</th>
+    <th>סמאש-קייק</th>
+  </tr>
+  
+  <tr>
+    <td ><b>חבילה בסיסית</b></td>
+    <td>1500</td>
+    <td>1150</td>
+    <td>1200</td>
+
+  </tr>
+  <tr>
+    <td ><b>פרימיום</b></td>
+    <td>3000</td>
+    <td>1001</td>
+    <td>1850</td>
+  </tr>
+  <tr>
+    <td ><b>עוד חבילה</b></td>
+    <td>2000</td>
+    <td>1650</td>
+    <td>1200</td>
+  </tr>
+</table>
+
+
+<!--topButton-->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<script>
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+<br><br>
+<div class="containerFooter">
+  <div></div>
+
+  <div class="toprightFooter1">
+    <p style="direction: center;"><b>תפריט</b></p>
+    <a class="footerLinks" href="../homePage.html">דף הבית שלנו</a><br>
+    <a class="footerLinks" href="../pages/contact.html" >צרו איתנו קשר</a><br>
+    <a class="footerLinks" href="../pages/children.html" target="_self">   ילדים</a><br>
+    <a class="footerLinks" href="../pages/newBorn.html">    ניו בורן</a><br>
+    <a class="footerLinks" href="../pages/smash_cake.html"> סמאש-קייק</a><br>
+  </div>
+
+  <div class="topleftFooter1">
+    <p ><b>פרטי התקשרות:</b></p>
+    <p>
+       כתובת: הדודאים 30, יריחו.
+      <br>
+       משרד: 077-198-202
+      <br>
+      פקס: 073-935-968</p>
+  </div>
+
+  <div></div>
+
+</div>
+   <br>
+   <footer>
+    <p style="font-size: 1.5vh;">אתר זה עוצב ע"י חברת tehila4510 בע"מ. להזמנות:  0556794510</p>
+  </footer>
+</body>
+</html>

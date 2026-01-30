@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>contact</title>
+  <link rel="stylesheet" href="styleSheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <!-- Header -->
+  <!-- <div class="header"> <img class="shakeImg" src="../photos/home/logo.png" alt="logo" style="width:20%">
+  </div> -->
+
+  <div  class="topnav" id="myTopnav">
+    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a id="thefirst"></a>
+    <a href="../homePage.html"><i class="fa fa-home"></i>דף הבית</a>
+    <a href="children.html"><i id="i1" class="material-icons"></i> ילדים</a>
+    <a href="newBorn.html"><i id="i1" class="material-icons"></i> ניו בורן</a>
+    <a href="smash_cake.html"><i id="i1" class="material-icons"></i> סמאש- קייק</a>
+    <a href="contact.html" class="active"><i id="i1" style="font-size:24px" class="fa"></i> צור קשר</a>
+  </div>
+
+  <script>
+    // פונקציה להפעלת תפריט ההמבורגר
+    function toggleMenu() {
+      const nav = document.getElementById("myTopnav");
+      const body = document.body;
+
+      if (nav.className === "topnav") {
+        nav.className += " responsive";
+        body.classList.add("responsive-content"); // לא לדחוף את התוכן
+      } else {
+        nav.className = "topnav";
+        body.classList.remove("responsive-content"); // החזרת התוכן למקום
+      }
+    }
+  </script>
+
+<br><br><br><br>
+
+  <!-- הטופס שלך כאן -->
+  <div class="bg-img">
+    <form id="contactForm" class="container" onsubmit="return validateForm()">
+      <h3>ספרו לי עליכם...</h3>
+      <img id="gifForm" src="../gif/מצלמה יפה לבנה.gif" />
+
+      <div class="row">
+        <label class="labelContact" for="name">איך קוראים לך?</label>
+        <input id="name" class="inputContact" type="text" placeholder="הי! קוראים לי תהילה " required>
+      </div>
+
+      <div class="row">
+        <label class="labelContact" for="email">מה המייל שלך?</label>
+        <input id="email" class="inputContact" type="email" placeholder="משהו פלוס שטורדל גימייל נקודה קום "
+          name="email" required>
+      </div>
+
+      <div class="row">
+        <label class="labelContact" for="city">עיר</label>
+        <select id="city" class="inputContact" name="city" required>
+          <option value="אלעד עיר הישיבות">אלעד עיר הישיבות</option>
+          <option value="ירושלים">ירושלים</option>
+          <option value="נתניה">נתניה</option>
+          <option value="בני ברק">בני ברק</option>
+          <option value="פתח תקוה">פתח תקוה</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <label class="labelContact" for="interest">במה אתה מתעניין?</label>
+        <textarea id="interest" class="inputContact" rows="4" cols="20" required></textarea>
+      </div>
+
+      <div class="row">
+        <button type="submit" class="btn">אפשר לשלוח?</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- מודאל של הודעת תודה -->
+  <div id="thankYouModal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span> <!-- כפתור סגירה -->
+      <p>תודה! <br>ניצור אתכם קשר בהקדם</p>
+      <button onclick="goHome()">חזרה לדף הבית</button>
+    </div>
+  </div>
+
+
+  <!-- הוספת סקריפט פה -->
+  <script>
+    // פונקציה שמוודאת אם כל השדות מולאו
+    function validateForm() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var city = document.getElementById("city").value;
+      var interest = document.getElementById("interest").value;
+
+      if (name === "" || email === "" || city === "" || interest === "") {
+        alert("אנא מלא את כל השדות!");
+        return false;  // מונע את שליחת הטופס אם השדות לא מולאו
+      } else {
+        // אם כל השדות מולאו, מציג את הודעת תודה
+        document.getElementById("thankYouModal").style.display = "block";
+        return false;  // מונע את שליחת הטופס בפועל (כדי לא לעבור לדף אחר)
+      }
+    }
+
+    // פונקציה לחזרה לדף הבית
+    // פונקציה לסגירת המודל
+    function closeModal() {
+      document.getElementById("thankYouModal").style.display = "none";
+    }
+
+    // פונקציה לחזרה לדף הבית
+    function goHome() {
+      window.location.href = '../homePage.html'; // לדף הבית שלך
+    }
+
+  </script>
+
+
+  <br><br><br>
+  <!--topButton-->
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+  <script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <div class="containerFooter">
+    <div></div>
+
+    <div class="toprightFooter1">
+      <p style="direction: center;"><b>תפריט</b></p>
+      <a class="footerLinks" href="../homePage.html">דף הבית שלנו</a><br>
+      <a class="footerLinks" href="../pages/contact.html" target="_self">צרו איתנו קשר</a><br>
+      <a class="footerLinks" href="../pages/children.html"> ילדים</a><br>
+      <a class="footerLinks" href="../pages/newBorn.html"> ניו בורן</a><br>
+      <a class="footerLinks" href="../pages/smash_cake.html"> סמאש-קייק</a><br>
+    </div>
+
+    <div class="topleftFooter1">
+      <p ><b>פרטי התקשרות:</b></p>
+      <p>
+         כתובת: הדודאים 30, יריחו.
+        <br>
+         משרד: 077-198-202
+        <br>
+        פקס: 073-935-968
+      </p><br>
+    </div>
+
+    <div></div>
+
+  </div>
+  <br>
+  <footer>
+    <p style="font-size: 1.5vh;">אתר זה עוצב ע"י חברת tehila4510 בע"מ. להזמנות: 0556794510</p>
+  </footer>
+</body>
+
+</html>

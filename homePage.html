@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homePage</title>
+  <link rel="stylesheet" href="homePage.css">
+  <link rel="stylesheet" href="pages//styleSheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  
+  
+  <!-- סרגל -->
+  <div class="topnav" id="myTopnav">
+    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a id="thefirst"></a>
+    <a href="homePage.html" class="active"><i class="fa fa-home"></i> דף הבית</a>
+    <a href="pages/children.html"><i id="i1" class="material-icons"></i> ילדים</a>
+    <a href="pages/newBorn.html"><i id="i1" class="material-icons"></i> ניו בורן</a>
+    <a href="pages/smash_cake.html"><i id="i1" class="material-icons"></i> סמאש- קייק</a>
+    <a href="pages/contact.html"><i id="i1" style="font-size:24px" class="fa"></i> צור קשר</a>
+  </div>
+
+  <script>
+    // פונקציה להפעלת תפריט ההמבורגר
+    function toggleMenu() {
+      const nav = document.getElementById("myTopnav");
+      const body = document.body;
+
+      if (nav.className === "topnav") {
+        nav.className += " responsive";
+        body.classList.add("responsive-content"); // לא לדחוף את התוכן
+      } else {
+        nav.className = "topnav";
+        body.classList.remove("responsive-content"); // החזרת התוכן למקום
+      }
+    }
+  </script>
+
+<br><br>
+  <!-- קרוסלה -->
+  <div class="slideshow-container">
+    <div class="slide">
+      <img src="photos/home/yes2loww.jpg" alt="Image 1" class="grow-first">
+    </div>
+    <div class="slide">
+      <img src="photos/home/yes2lowww.jpg" alt="Image 2">
+    </div>
+    <div class="slide">
+      <img src="photos/home/yes2low.jpg" alt="Image 3">
+    </div>
+
+    <!-- כפתורים -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- פס התקדמות -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- עד כאן הקרוסלה -->
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+    const progressBar = document.getElementById("progress-bar");
+    let slideInterval;
+
+    function showSlides() {
+      // הסתר את כל התמונות
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      const currentSlide = slides[slideIndex - 1];
+      currentSlide.style.display = "block";
+
+      // אפקט הגדילה רק לתמונה הראשונה
+      if (slideIndex === 1) {
+        currentSlide.querySelector("img").classList.add("animateFirstImage");
+      } else {
+        currentSlide.querySelector("img").classList.remove("animateFirstImage");
+      }
+
+      // אפס את פס ההתקדמות והתחל מחדש
+      progressBar.style.width = "0%";
+      setTimeout(() => {
+        progressBar.style.width = "100%";
+      }, 10);
+    }
+
+    function plusSlides(n) {
+      clearInterval(slideInterval); // עצור את המעבר האוטומטי
+      slideIndex += n - 1;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      showSlides();
+      startSlideShow(); // התחל מחדש את המעבר האוטומטי
+    }
+
+    function startSlideShow() {
+      showSlides();
+      slideInterval = setInterval(showSlides, 3000); // כל 3 שניות
+    }
+
+    // התחל את הקרוסלה
+    startSlideShow();
+  </script>
+  <!-- עד כאן הקרוסלה -->
+
+  <div>
+    <img class="shakeImg" src="photos/home/תמונה4.png" alt="" style="width:100%">
+    <img class="imageHome" src="photos/home/תמונה5.png" alt="" style="width:100%">
+  </div>
+  <img id="gif" src="gif/מצלמה צהובה.gif" style="width:5%;">
+  <br><br>
+
+  <div id="linksHome">
+    <div class="columnH">
+      <a href="pages/smash_cake.html" id="transform">
+        <div class="ofhidden imgZoom1">
+          <img class="" src="photos/home/smashCake.png" style="width:80%;">
+        </div>
+      </a>
+    </div>
+
+    <div class="columnH">
+      <a href="pages/children.html" id="transform">
+        <div class="ofhidden imgZoom1">
+          <img src="photos/home/children.png" style="width:80%;">
+        </div>
+      </a>
+    </div>
+
+    <div class="columnH">
+      <a href="pages/newBorn.html" id="transform">
+        <div class="ofhidden imgZoom1">
+          <img src="photos/home/newBorn.png" style="width:80%;">
+        </div>
+      </a>
+    </div>
+  </div>
+<br>
+  <!-- topButton -->
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+  <script>
+    let mybutton = document.getElementById("myBtn");
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+  <div class="containerFooterHome">
+    <div></div>
+
+    <div class="toprightFooter1">
+      <p style="direction: center;"><b>תפריט</b></p>
+      <a class="footerLinks" href="homePage.html" target="_self">דף הבית שלנו</a><br>
+      <a class="footerLinks" href="pages/contact.html">צרו איתנו קשר</a><br>
+      <a class="footerLinks" href="pages/children.html">ילדים</a><br>
+      <a class="footerLinks" href="pages/newBorn.html">ניו בורן</a><br>
+      <a class="footerLinks" href="pages/smash_cake.html">סמאש-קייק</a><br>
+    </div>
+
+    <div class="topleftFooter1">
+      <p ><b>פרטי התקשרות:</b></p>
+      <br>
+      <p>
+        כתובת: הדודאים 30, יריחו.
+        <br>
+        077-198-202
+        <br>
+        פקס: 073-935-968
+      </p><br>
+    </div>
+
+    <div></div>
+  </div><br>
+  <footer>
+    <p style="font-size: 1.6vh;">אתר זה הוקם ע"י חברת tehila4510 בע"מ. להזמנות: 0556794510</p>
+  </footer>
+</body>
+
+</html>
